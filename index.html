@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <title>Soul Out Vol.11｜160 人即時訂位曲線</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <p class="eyebrow">SOUL OUT · BOOKING CONTROL</p>
+      <h1>Vol.11｜160 人即時訂位曲線</h1>
+      <p class="sub">活動日 2026.09.19 · 預售截止 09.18 · 現場票獨立估算</p>
+    </header>
+
+    <section class="controls card">
+      <label>目前預售票數<input id="currentTickets" type="number" min="0" value="25" /></label>
+      <label>追蹤日期<input id="asOfDate" type="date" value="2026-08-19" /></label>
+      <label>最終入場目標<input id="attendanceTarget" type="number" min="1" value="160" /></label>
+      <button id="saveBtn">更新進度</button>
+    </section>
+
+    <section class="kpis">
+      <article class="card"><span>目前預售</span><strong id="kpiCurrent">25</strong><small id="kpiCurrentPct"></small></article>
+      <article class="card"><span>建議預售目標</span><strong id="kpiPresaleTarget">134</strong><small>160 − 歷史平均現場票</small></article>
+      <article class="card"><span>歷史同期基準</span><strong id="kpiBaseline">—</strong><small id="kpiBaselinePct"></small></article>
+      <article class="card"><span>進度狀態</span><strong id="kpiStatus">—</strong><small id="kpiDelta"></small></article>
+    </section>
+
+    <section class="card chart-card">
+      <div class="section-head"><div><h2>訂位曲線</h2><p>以距離活動日天數對齊 Vol.9、Vol.10；Vol.11 目標線按歷史平均曲線縮放。</p></div><div class="legend"><span class="dot target"></span>Vol.11 目標線 <span class="dot actual"></span>Vol.11 實際</div></div>
+      <div class="chart-wrap"><canvas id="bookingChart" width="1100" height="460"></canvas></div>
+    </section>
+
+    <section class="grid-2">
+      <article class="card"><h2>現場票假設</h2><div class="door-row"><span>Vol.9</span><b>22</b></div><div class="door-row"><span>Vol.10</span><b>30</b></div><div class="door-row total"><span>歷史平均</span><b id="doorAvg">26</b></div><p class="note">因此 160 人目標暫以約 134 張預售 + 26 張現場票拆分。可依活動策略再調整。</p></article>
+      <article class="card"><h2>今天怎麼看</h2><p id="interpretation" class="interpretation"></p><div class="progress"><div id="progressBar"></div></div><p id="remaining" class="note"></p></article>
+    </section>
+
+    <footer>Historical presale curves: Soul Out Vol.9 / Vol.10 · Local data only</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
