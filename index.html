@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="theme-color" content="#0b0b0c"/><title>Soul Out｜Booking Curve</title><link rel="stylesheet" href="styles.css"/></head>
+<body><main class="wrap">
+<header><p class="eyebrow">SOUL OUT · BOOKING CONTROL</p><h1 id="pageTitle">Soul Out｜Booking Curve</h1><p class="sub" id="eventSummary">建立活動後即可開始追蹤預售曲線</p></header>
+<section class="controls card">
+<label>活動名稱<input id="eventName" type="text" value="Soul Out Vol.11"/></label>
+<label>活動日期<input id="eventDate" type="date" value="2026-09-19"/></label>
+<label>目前預售票數<input id="currentTickets" type="number" min="0" value="25"/></label>
+<label>追蹤日期<input id="asOfDate" type="date" value="2026-08-19"/></label>
+<label>最終入場目標<input id="attendanceTarget" type="number" min="1" value="160"/></label>
+<label>預估現場票<input id="doorEstimate" type="number" min="0" value="26"/></label>
+<button id="saveBtn">儲存／更新活動</button></section>
+<section class="kpis"><article class="card"><span>目前預售</span><strong id="kpiCurrent">—</strong><small id="kpiCurrentPct"></small></article><article class="card"><span>建議預售目標</span><strong id="kpiPresaleTarget">—</strong><small>總目標 − 預估現場票</small></article><article class="card"><span>歷史同期基準</span><strong id="kpiBaseline">—</strong><small id="kpiBaselinePct"></small></article><article class="card"><span>進度狀態</span><strong id="kpiStatus">—</strong><small id="kpiDelta"></small></article></section>
+<section class="card chart-card"><div class="section-head"><div><h2>訂位曲線</h2><p>以距離活動日天數對齊歷史活動；目標線依歷史平均售票節奏縮放。</p></div><div class="legend"><span class="dot target"></span>目標曲線 <span class="dot actual"></span>目前進度</div></div><div class="chart-wrap"><canvas id="bookingChart" width="1100" height="460"></canvas></div></section>
+<section class="grid-2"><article class="card"><h2>歷史現場票</h2><div class="door-row"><span>Vol.9</span><b>22</b></div><div class="door-row"><span>Vol.10</span><b>30</b></div><div class="door-row total"><span>歷史平均</span><b>26</b></div><p class="note">新增活動時可自行調整「預估現場票」，不會把現場票混入預售曲線。</p></article><article class="card"><h2>目前判讀</h2><p id="interpretation" class="interpretation"></p><div class="progress"><div id="progressBar"></div></div><p id="remaining" class="note"></p></article></section>
+<footer>Historical benchmark: Soul Out Vol.9 / Vol.10 · 每場活動設定儲存在此瀏覽器</footer></main><script src="app.js"></script></body></html>
