@@ -4,7 +4,7 @@ function renderBookingTable(){
   const targetAttendance=Number(document.getElementById('attendanceTarget').value)||160;
   const mode=document.getElementById('doorMode').value;
   const customDoor=Number(document.getElementById('doorEstimate').value)||0;
-  const door=mode==='auto'?doorAvg:customDoor;
+  const door=mode==='auto'?Math.round(doorAvg):Math.round(customDoor);
   const presaleTarget=Math.max(0,targetAttendance-door);
   const eventDate=document.getElementById('eventDate').value;
   const asOf=document.getElementById('asOfDate').value;
