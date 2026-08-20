@@ -1,4 +1,4 @@
-const BOOKING_WEIGHTS={"Vol.2":0.25,"Vol.3":0.25,"Vol.4":0.25,"Vol.5":0.25,"Vol.7":0.25,"Vol.8":0.5,"X Bar 24":0,"Vol.9":2,"Vol.10":2.5};
+const BOOKING_WEIGHTS={"Vol.2":0.25,"Vol.3":0.25,"Vol.4":0.25,"Vol.5":0.25,"Vol.7":0.25,"Vol.8":0.3,"X Bar 24":0,"Vol.9":2.5,"Vol.10":2.5};
 baselineAt=function(d){
   if(d<=1)return 1;
   const values=HISTORY.map(e=>({v:valueAt(e.curve,d),w:BOOKING_WEIGHTS[e.name]??1})).filter(x=>x.v!=null&&x.w>0);
